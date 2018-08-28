@@ -14,3 +14,6 @@ An Amazon-like storefront with MySQL database and a CLI with NodeJS. This applic
 The customer interface allows the user to view the current inventory of store items: item IDs, descriptions, department in which the item is located and price. The user is then able to purchase one of the existing items by entering the item ID and the desired quantity. If the selected quantity is currently in stock, the user's order is fulfilled, displaying the total purchase price and updating the store database. If the desired quantity is not available, the user is prompted to modify their order.
 
 [![asciicast](https://asciinema.org/a/fWO0mqoPfHflqxqeJ2AWLqsnF.png)](https://asciinema.org/a/fWO0mqoPfHflqxqeJ2AWLqsnF)
+
+
+<iframe src="https://giphy.com/embed/1gWlNmAj6cm48OQ6Zh" width="480" height="250" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/1gWlNmAj6cm48OQ6Zh">via GIPHY</a></p>
