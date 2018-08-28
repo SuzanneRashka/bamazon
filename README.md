@@ -4,10 +4,10 @@ An Amazon-like storefront with MySQL database and a CLI with NodeJS. This applic
 
 ## To run the customer interface please follow the steps below:
 
-git clone this repo
-cd to bamazon
-npm install
-node bamazonCustomer.js
+    - git clone this repo
+    - cd to bamazon
+    - npm install
+    - node bamazonCustomer.js
 
 ## Customer Interface
 
