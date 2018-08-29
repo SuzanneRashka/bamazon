@@ -63,6 +63,7 @@ function promptPurchase() {
           } else {
             // change the quantity
             var productData = res[0];
+            var chosenQuantity = input.quantity;
             if (quantity <= productData.stock_quantity) {
               console.log("Congrats! The product you want is in stock.");
               var updateQueryStr =
