@@ -12,7 +12,6 @@ var connection = mysql.createConnection({
 
 connection.connect(function (err) {
   if (err) throw err;
-  // console.log("connected as id " + connection.threadId + "\n");
   display();
 });
 
@@ -21,28 +20,12 @@ function display() {
   connection.query(queryStr, function (err, res) {
     if (err) throw err;
 
-    // console.log('Existing Inventory: ');
-    // console.log("---------------------------------------------------------------------\n");
     var tableArray = [];
-    // ****************  CAN'T MAKE FOR LOOP EXCLUDE QUANTITY
+
     for (var i = 0; i < res.length; i++) {
       tableArray.push(res[i]);
     }
     console.table(tableArray);
-
-    // var strOut = '';
-    // for (var i = 0; i < res.length; i++) {
-    //   strOut = '';
-    //   strOut += 'Item ID: ' + res[i].item_id + '  //  ';
-    //   strOut += 'Product Name: ' + res[i].product_name + '  //  ';
-    //   strOut += 'Price: $' + res[i].price + '\n';
-
-    //   console.log(strOut);
-    // }
-
-    // console.log("---------------------------------------------------------------------\n");
-
-    //Prompt the user for item/quantity they would like to purchase
     promptPurchase();
   });
 }
@@ -52,15 +35,6 @@ function promptPurchase() {
     .prompt([{
         name: "item_id",
         type: "input",
-        // choices: function () {
-        //   var choiceArray = [];
-        //   var tableArray = [];
-        //   for (var i = 0; i < res.length; i++) {
-        //     tableArray.push(res[i]);
-        //   }
-        //   console.table(tableArray);
-        //   return choiceArray;
-        // },
         message: "What is the item number of the product you would like to buy?",
         filter: Number
       },
@@ -72,7 +46,6 @@ function promptPurchase() {
       }
     ])
     .then(function (input) {
-      // console.log('Customer has selected: \n    item_id = ' + input.item_id + '\n    quantity = ' + input.stock_quantity);
       var item = input.item_id;
       var quantity = input.quantity;
 
@@ -95,11 +68,9 @@ function promptPurchase() {
               var updateQueryStr =
                 "UPDATE products SET stock_quantity = stock_quantity - " + quantity +
                 " WHERE item_id = " + item;
-              // console.log('updateQueryStr = ' + updateQueryStr);
               // update the quantity
               connection.query(updateQueryStr, function (err, res) {
                 if (err) throw err;
-                // console.log(res);
                 console.log(
                   "Thank you for shopping with us! Your order has been placed."
                 );
